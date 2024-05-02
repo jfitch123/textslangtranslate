@@ -1,0 +1,31 @@
+body {
+    background-image: url('BG-IMAGE.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Cover the entire background */
+    font-family: Calibri, Arial, sans-serif; /* Fallback fonts */
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: underline; /* Keep links underlined */
+}
+
+button {
+    font-family: Calibri, Arial, sans-serif; /* Fallback fonts */
+    height: 40px; /* Adjust height as needed */
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+::placeholder {
+    font-family: Calibri, Arial, sans-serif; /* Fallback fonts */
+    color: #ccc; /* Placeholder color */
+}
