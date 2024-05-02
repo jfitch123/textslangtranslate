@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="../style.css">
+<body>
+    <h1>English to Text Slang</h1>
+    
+    <textarea id="input-text" rows="4" cols="50" placeholder="Enter text to translate..." oninput="translateToTextSlang()"></textarea>
+    <br>
+    
+    <h2>Text Slang:</h2>
+    <h3 id="text-slang"></h3>
+
+    <script>
+        function translateToTextSlang() {
+            const inputText = document.getElementById('input-text').value;
+            const englishToTextSlangMap = {
+                "Laugh out loud": "lol",
+                "for real": "fr",
+                "I don't know": "idk",
+                "I don't care": "idc",
+                "what's up": "wassup",
+                "talk to you later": "ttyl",
+                "be right back": "brb",
+                "I swear to God": "istg",
+                "oh my gosh": "omg",
+                "oh my God": "omg",
+                "oh my goodness": "omg",
+                "good night": "gn",
+                "good morning": "gm",
+                "what do you mean": "wdym",
+                "I know right": "ikr",
+                "point of view": "pov",
+                "by the way": "btw",
+                "never mind": "nvm",
+                "as soon as possible": "asap",
+                "let me know": "lmk",
+                "what about you": "wbu",
+                "how about you": "hbu",
+                "I love you": "ily",
+                "see you": "cya",
+                "to be honest": "tbh",
+                "for your information": "fyi",
+                "in real life": "irl",
+                "in my opinion": "imo",
+                "for what it's worth": "fwiw",
+                "estimated time of arrival": "eta",
+                "because": "bc",
+                "no problem": "np",
+                "shaking my head": "smh",
+                "best friends forever": "bff",
+                "on my way": "omw",
+                "to be determined": "tbd",
+                "original": "og",
+                "original gangsters": "og",
+                "real quick": "rq",
+                "not gonna lie": "ngl",
+                "be right there": "brt",
+                "so much": "sm",
+                "at the moment": "atm",
+                "you're welcome": "yw",
+                "got to go": "g2g",
+                "thank you": "ty",
+                "also known as": "aka",
+                "do it yourself": "diy",
+                "end of day": "eod",
+                "do not disturb": "dnd"
+                // Add more English to text slang mappings as needed
+            };
+
+            const englishToTextSlangMapForWords = {
+                "are": "r",
+                "because": "bc",
+                "boyfriend": "bf",
+                "girlfriend": "gf",
+                "heart": "<3",
+                "later": "l8r",
+                "nevermind": "nvm",
+                "ok": "k",
+                "okay": "Kk",
+                "today": "2day",
+                "tomorrow": "2morrow",
+                "tonight": "2nite",
+                "what": "wat",
+                "why": "y",
+                "without": "w/o",
+                "you": "u",
+                "you're": "ur",
+                "your": "ur",
+                "to": "2",
+                "for": "4"      
+                // Add more English to text slang mappings for words as needed
+            };
+
+            // Translate English to text slang
+            let translatedText = translateEnglishToTextSlang(inputText, englishToTextSlangMap);
+
+            // Translate individual English words to text slang
+            translatedText = translateWords(translatedText, englishToTextSlangMapForWords);
+
+            document.getElementById('text-slang').innerText = translatedText.trim();
+        }
+
+        function translateEnglishToTextSlang(inputText, translationMap) {
+            let translatedText = inputText;
+
+            // Replace each English phrase with its text slang translation
+            for (const phrase in translationMap) {
+                const regex = new RegExp('\\b' + phrase + '\\b', 'gi');
+                translatedText = translatedText.replace(regex, translationMap[phrase]);
+            }
+
+            return translatedText;
+        }
+
+        function translateWords(inputText, translationMap) {
+            let translatedText = inputText;
+
+            // Replace each English word with its text slang translation
+            for (const word in translationMap) {
+                const regex = new RegExp('\\b' + word + '\\b', 'gi');
+                translatedText = translatedText.replace(regex, translationMap[word]);
+            }
+
+            return translatedText;
+        }
+
+        // Call the translation function when the page loads
+        translateToTextSlang();
+    </script>
+    
+    <button onclick="window.location.href = 'Text Slang to English.html'">Switch to Text Slang to English</button>
+    <button onclick="window.location.href = '../index.html'">Home</button>
+</body>
+</html>
